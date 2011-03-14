@@ -49,6 +49,9 @@ package com.bit101.components
 			super(parent, xpos, ypos);
 		}
 		
+		//--------------------------------------
+		//  PRIVATE
+		//--------------------------------------
 		
 		/**
 		 * Initializes the component.
@@ -83,12 +86,9 @@ package com.bit101.components
 			_bar.scaleX = _value / _max;
 		}
 
-		
-		
-		
-		///////////////////////////////////
-		// public methods
-		///////////////////////////////////
+		//--------------------------------------
+		//  PUBLIC
+		//--------------------------------------
 		
 		/**
 		 * Draws the visual ui of the component.
@@ -108,43 +108,31 @@ package com.bit101.components
 			update();
 		}
 		
-		
-		
-		
-		///////////////////////////////////
-		// event handlers
-		///////////////////////////////////
-		
-		///////////////////////////////////
-		// getter/setters
-		///////////////////////////////////
-		
 		/**
 		 * Gets / sets the maximum value of the ProgressBar.
 		 */
 		public function set maximum(m:Number):void
 		{
-			_max = m;
+			_max = Math.max(m, 0);
 			_value = Math.min(_value, _max);
 			update();
 		}
-		public function get maximum():Number
-		{
-			return _max;
-		}
+		
+		public function get maximum():Number { return _max; }
 		
 		/**
 		 * Gets / sets the current value of the ProgressBar.
 		 */
 		public function set value(v:Number):void
 		{
-			_value = Math.min(v, _max);
+			_value = Math.max(Math.min(v, _max), 0);
 			update();
 		}
-		public function get value():Number
-		{
-			return _value;
-		}
 		
+		public function get value():Number { return _value; }
 	}
 }
+
+
+
+
