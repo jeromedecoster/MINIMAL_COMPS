@@ -45,16 +45,6 @@ package com.bit101.components
 	[Event(name="draw", type="flash.events.Event")]
 	public class Component extends Sprite
 	{
-		// NOTE: Flex 4 introduces DefineFont4, which is used by default and does not work in native text fields.
-		// Use the embedAsCFF="false" param to switch back to DefineFont4. In earlier Flex 4 SDKs this was cff="false".
-		// So if you are using the Flex 3.x sdk compiler, switch the embed statment below to expose the correct version.
-		
-		// Flex 4.x sdk:
-//		[0Embed(source="../../../assets/pf_ronda_seven.ttf", embedAsCFF="false", fontName="PF Ronda Seven", mimeType="application/x-font")]
-		// Flex 3.x sdk:
-//		[0Embed(source="../../../assets/pf_ronda_seven.ttf", fontName="PF Ronda Seven", mimeType="application/x-font")]
-//		protected var Ronda:Class;
-		
 		protected var _width:Number = 0;
 		protected var _height:Number = 0;
 		protected var _tag:int = -1;
@@ -72,11 +62,28 @@ package com.bit101.components
 		{
 			move(xpos, ypos);
 			init();
-			if(parent != null)
+			if (parent != null)
 			{
 				parent.addChild(this);
 			}
 		}
+		
+		//--------------------------------------
+		//  EVENTS
+		//--------------------------------------
+		
+		/**
+		 * Called one frame after invalidate is called.
+		 */
+		protected function onInvalidate(event:Event):void
+		{
+			removeEventListener(Event.ENTER_FRAME, onInvalidate);
+			draw();
+		}
+		
+		//--------------------------------------
+		//  PRIVATE
+		//--------------------------------------
 		
 		/**
 		 * Initilizes the component.
@@ -114,12 +121,9 @@ package com.bit101.components
 			addEventListener(Event.ENTER_FRAME, onInvalidate);
 		}
 		
-		
-		
-		
-		///////////////////////////////////
-		// public methods
-		///////////////////////////////////
+		//--------------------------------------
+		//  PUBLIC
+		//--------------------------------------
 		
 		/**
 		 * Utility method to set up usual stage align and scaling.
@@ -162,29 +166,6 @@ package com.bit101.components
 			dispatchEvent(new Event(Component.DRAW));
 		}
 		
-		
-		
-		
-		///////////////////////////////////
-		// event handlers
-		///////////////////////////////////
-		
-		/**
-		 * Called one frame after invalidate is called.
-		 */
-		protected function onInvalidate(event:Event):void
-		{
-			removeEventListener(Event.ENTER_FRAME, onInvalidate);
-			draw();
-		}
-		
-		
-		
-		
-		///////////////////////////////////
-		// getter/setters
-		///////////////////////////////////
-		
 		/**
 		 * Sets/gets the width of the component.
 		 */
@@ -194,10 +175,8 @@ package com.bit101.components
 			invalidate();
 			dispatchEvent(new Event(Event.RESIZE));
 		}
-		override public function get width():Number
-		{
-			return _width;
-		}
+		
+		override public function get width():Number { return _width; }
 		
 		/**
 		 * Sets/gets the height of the component.
@@ -208,10 +187,8 @@ package com.bit101.components
 			invalidate();
 			dispatchEvent(new Event(Event.RESIZE));
 		}
-		override public function get height():Number
-		{
-			return _height;
-		}
+		
+		override public function get height():Number { return _height; }
 		
 		/**
 		 * Sets/gets in integer that can identify the component.
@@ -220,10 +197,8 @@ package com.bit101.components
 		{
 			_tag = value;
 		}
-		public function get tag():int
-		{
-			return _tag;
-		}
+		
+		public function get tag():int { return _tag; }
 		
 		/**
 		 * Overrides the setter for x to always place the component on a whole pixel.
@@ -251,10 +226,11 @@ package com.bit101.components
             tabEnabled = value;
 			alpha = _enabled ? 1.0 : 0.5;
 		}
-		public function get enabled():Boolean
-		{
-			return _enabled;
-		}
-
+		
+		public function get enabled():Boolean { return _enabled; }
 	}
 }
+
+
+
+
