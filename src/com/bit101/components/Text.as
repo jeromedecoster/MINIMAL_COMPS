@@ -59,6 +59,24 @@ package com.bit101.components
 			setSize(200, 100);
 		}
 		
+		//--------------------------------------
+		//  EVENTS
+		//--------------------------------------
+		
+		/**
+		 * Called when the text in the text field is manually changed.
+		 */
+		protected function onChange(event:Event):void
+		{
+			event.stopImmediatePropagation();
+			_text = _tf.text;
+			dispatchEvent(event);
+		}
+		
+		//--------------------------------------
+		//  PUBLIC
+		//--------------------------------------
+		
 		/**
 		 * Initializes the component.
 		 */
@@ -90,13 +108,6 @@ package com.bit101.components
 			_tf.addEventListener(Event.CHANGE, onChange);			
 			addChild(_tf);
 		}
-		
-		
-		
-		
-		///////////////////////////////////
-		// public methods
-		///////////////////////////////////
 		
 		/**
 		 * Draws the visual ui of the component.
@@ -133,26 +144,6 @@ package com.bit101.components
 			_tf.setTextFormat(_format);
 		}
 		
-		
-		
-		
-		///////////////////////////////////
-		// event handlers
-		///////////////////////////////////
-		
-		/**
-		 * Called when the text in the text field is manually changed.
-		 */
-		protected function onChange(event:Event):void
-		{
-			_text = _tf.text;
-			dispatchEvent(event);
-		}
-		
-		///////////////////////////////////
-		// getter/setters
-		///////////////////////////////////
-		
 		/**
 		 * Gets / sets the text of this Label.
 		 */
@@ -162,18 +153,13 @@ package com.bit101.components
 			if(_text == null) _text = "";
 			invalidate();
 		}
-		public function get text():String
-		{
-			return _text;
-		}
+		
+		public function get text():String { return _text; }
 		
 		/**
 		 * Returns a reference to the internal text field in the component.
 		 */
-		public function get textField():TextField
-		{
-			return _tf;
-		}
+		public function get textField():TextField { return _tf; }
 		
 		/**
 		 * Gets / sets whether or not this text component will be editable.
@@ -183,10 +169,8 @@ package com.bit101.components
 			_editable = b;
 			invalidate();
 		}
-		public function get editable():Boolean
-		{
-			return _editable;
-		}
+		
+		public function get editable():Boolean { return _editable; }
 		
 		/**
 		 * Gets / sets whether or not this text component will be selectable. Only meaningful if editable is false.
@@ -196,10 +180,8 @@ package com.bit101.components
 			_selectable = b;
 			invalidate();
 		}
-		public function get selectable():Boolean
-		{
-			return _selectable;
-		}
+		
+		public function get selectable():Boolean { return _selectable; }
 		
 		/**
 		 * Gets / sets whether or not text will be rendered as HTML or plain text.
@@ -209,10 +191,8 @@ package com.bit101.components
 			_html = b;
 			invalidate();
 		}
-		public function get html():Boolean
-		{
-			return _html;
-		}
+		
+		public function get html():Boolean { return _html; }
 
         /**
          * Sets/gets whether this component is enabled or not.
@@ -222,6 +202,9 @@ package com.bit101.components
             super.enabled = value;
             _tf.tabEnabled = value;
         }
-
 	}
 }
+
+
+
+
