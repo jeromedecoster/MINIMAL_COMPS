@@ -52,11 +52,30 @@ package com.bit101.components
 		{
 			this.text = text;
 			super(parent, xpos, ypos);
-			if(defaultHandler != null)
+			if (defaultHandler != null)
 			{
 				addEventListener(Event.CHANGE, defaultHandler);
 			}
 		}
+		
+		//--------------------------------------
+		//  EVENTS
+		//--------------------------------------
+		
+		/**
+		 * Internal change handler.
+		 * @param event The Event passed by the system.
+		 */
+		protected function onChange(event:Event):void
+		{
+			event.stopImmediatePropagation();
+			_text = _tf.text;
+			dispatchEvent(event);
+		}
+		
+		//--------------------------------------
+		//  PRIVATE
+		//--------------------------------------
 		
 		/**
 		 * Initializes the component.
@@ -86,12 +105,9 @@ package com.bit101.components
 			
 		}
 		
-		
-		
-		
-		///////////////////////////////////
-		// public methods
-		///////////////////////////////////
+		//--------------------------------------
+		//  PUBLIC
+		//--------------------------------------
 		
 		/**
 		 * Draws the visual ui of the component.
@@ -106,7 +122,7 @@ package com.bit101.components
 			
 			_tf.displayAsPassword = _password;
 			
-			if(_text != null)
+			if (_text != null)
 			{
 				_tf.text = _text;
 			}
@@ -115,7 +131,7 @@ package com.bit101.components
 				_tf.text = "";
 			}
 			_tf.width = _width - 4;
-			if(_tf.text == "")
+			if (_tf.text == "")
 			{
 				_tf.text = "X";
 				_tf.height = Math.min(_tf.textHeight + 4, _height);
@@ -129,29 +145,6 @@ package com.bit101.components
 			_tf.y = Math.round(_height / 2 - _tf.height / 2);
 		}
 		
-		
-		
-		
-		///////////////////////////////////
-		// event handlers
-		///////////////////////////////////
-		
-		/**
-		 * Internal change handler.
-		 * @param event The Event passed by the system.
-		 */
-		protected function onChange(event:Event):void
-		{
-			_text = _tf.text;
-		}
-		
-		
-		
-		
-		///////////////////////////////////
-		// getter/setters
-		///////////////////////////////////
-		
 		/**
 		 * Gets / sets the text shown in this InputText.
 		 */
@@ -161,18 +154,13 @@ package com.bit101.components
 			if(_text == null) _text = "";
 			invalidate();
 		}
-		public function get text():String
-		{
-			return _text;
-		}
+		
+		public function get text():String { return _text; }
 		
 		/**
 		 * Returns a reference to the internal text field in the component.
 		 */
-		public function get textField():TextField
-		{
-			return _tf;
-		}
+		public function get textField():TextField { return _tf; }
 		
 		/**
 		 * Gets / sets the list of characters that are allowed in this TextInput.
@@ -181,10 +169,8 @@ package com.bit101.components
 		{
 			_tf.restrict = str;
 		}
-		public function get restrict():String
-		{
-			return _tf.restrict;
-		}
+		
+		public function get restrict():String { return _tf.restrict; }
 		
 		/**
 		 * Gets / sets the maximum number of characters that can be shown in this InputText.
@@ -193,10 +179,8 @@ package com.bit101.components
 		{
 			_tf.maxChars = max;
 		}
-		public function get maxChars():int
-		{
-			return _tf.maxChars;
-		}
+		
+		public function get maxChars():int { return _tf.maxChars; }
 		
 		/**
 		 * Gets / sets whether or not this input text will show up as password (asterisks).
@@ -206,10 +190,8 @@ package com.bit101.components
 			_password = b;
 			invalidate();
 		}
-		public function get password():Boolean
-		{
-			return _password;
-		}
+		
+		public function get password():Boolean { return _password; }
 
         /**
          * Sets/gets whether this component is enabled or not.
@@ -219,6 +201,9 @@ package com.bit101.components
             super.enabled = value;
             _tf.tabEnabled = value;
         }
-
 	}
 }
+
+
+
+
