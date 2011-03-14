@@ -50,9 +50,6 @@ package com.bit101.components
 		protected var _value:Number = 0.0;
 		protected var _velocity:Number = 0;
 		
-		
-		
-		
 		/**
 		 * Constructor
 		 * @param parent The parent DisplayObjectContainer on which to add this Meter.
@@ -66,6 +63,33 @@ package com.bit101.components
 			super(parent, xpos, ypos);
 		}
 		
+		//--------------------------------------
+		//  EVENTS
+		//--------------------------------------
+		
+		/**
+		 * Handles the enterFrame event to spring the needle to the target rotation.
+		 */
+		protected function onEnterFrame(event:Event):void
+		{
+			var dist:Number = _targetRotation - _needle.rotation;
+			_velocity += dist * .05;
+			_velocity *= _damp;
+			if (Math.abs(_velocity) < .1 && Math.abs(dist) < .1)
+			{
+				_needle.rotation = _targetRotation;
+				removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+			}
+			else
+			{
+				_needle.rotation += _velocity;
+			}
+		}
+		
+		//--------------------------------------
+		//  PRIVATE
+		//--------------------------------------
+		
 		/**
 		 * Initializes the component.
 		 */
@@ -75,7 +99,6 @@ package com.bit101.components
 			_width = 200;
 			_height = 100;
 		}
-		
 		
 		/**
 		 * Creates and adds the child display objects of this component.
@@ -103,46 +126,6 @@ package com.bit101.components
 			_label = new Label(this);
 			_label.text = _labelText;
 		}
-		
-		 
-		 
-		///////////////////////////////////
-		// public methods
-		///////////////////////////////////
-		
-		/**
-		 * Draws the visual ui of the component.
-		 */
-		override public function draw():void
-		{
-			var startAngle:Number = -140 * Math.PI / 180;
-			var endAngle:Number = -40 * Math.PI / 180;
-			
-			drawBackground();
-			drawDial(startAngle, endAngle);
-			drawTicks(startAngle, endAngle);
-			drawNeedle();
-			
-			_minLabel.move(10, _height - _minLabel.height - 4);
-			_maxLabel.move(_width - _maxLabel.width - 10, _height - _maxLabel.height - 4);
-			_label.move((_width - _label.width) / 2, _height * .5);
-			update();
-		}
-		
-		/**
-		 * Sets the size of the component. Adjusts height to be 1/2 width.
-		 * @param w The width of the component.
-		 * @param h The height of the component.
-		 */
-		override public function setSize(w:Number, h:Number):void
-		{
-			h = w / 2;
-			super.setSize(w, h);
-		}
-		
-		///////////////////////////////////
-		// public methods
-		///////////////////////////////////
 		
 		/**
 		 * Draws the background of the component.
@@ -202,7 +185,7 @@ package com.bit101.components
 			{
 				var angle:Number = startAngle + i * (endAngle - startAngle) / 8;
 				_dial.graphics.moveTo(Math.cos(angle) * r2, Math.sin(angle) * r2);
-				if(tick++ % 2 == 0)
+				if (tick++ % 2 == 0)
 				{
 					_dial.graphics.lineTo(Math.cos(angle) * r3, Math.sin(angle) * r3);
 				}
@@ -234,38 +217,53 @@ package com.bit101.components
 		 */
 		protected function update():void
 		{
-			_value = Math.max(_value, _minimum);
-			_value = Math.min(_value, _maximum);
+			if (_maximum >= _minimum)
+			{
+				_value = Math.max(_value, _minimum);
+				_value = Math.min(_value, _maximum);
+			}
+			else
+			{
+				_value = Math.min(_value, _minimum);
+				_value = Math.max(_value, _maximum);
+			}
 			_targetRotation = -50 + (_value - _minimum) / (_maximum - _minimum) * 100;
 			addEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 		
-		///////////////////////////////////
-		// event handlers
-		///////////////////////////////////
+		//--------------------------------------
+		//  PUBLIC
+		//--------------------------------------
 		
 		/**
-		 * Handles the enterFrame event to spring the needle to the target rotation.
+		 * Draws the visual ui of the component.
 		 */
-		protected function onEnterFrame(event:Event):void
+		override public function draw():void
 		{
-			var dist:Number = _targetRotation - _needle.rotation;
-			_velocity += dist * .05;
-			_velocity *= _damp;
-			if(Math.abs(_velocity) < .1 && Math.abs(dist) < .1)
-			{
-				_needle.rotation = _targetRotation;
-				removeEventListener(Event.ENTER_FRAME, onEnterFrame);
-			}
-			else
-			{
-				_needle.rotation += _velocity;
-			}
+			var startAngle:Number = -140 * Math.PI / 180;
+			var endAngle:Number = -40 * Math.PI / 180;
+			
+			drawBackground();
+			drawDial(startAngle, endAngle);
+			drawTicks(startAngle, endAngle);
+			drawNeedle();
+			
+			_minLabel.move(10, _height - _minLabel.height - 4);
+			_maxLabel.move(_width - _maxLabel.width - 10, _height - _maxLabel.height - 4);
+			_label.move((_width - _label.width) / 2, _height * .5);
+			update();
 		}
 		
-		///////////////////////////////////
-		// getter/setters
-		///////////////////////////////////
+		/**
+		 * Sets the size of the component. Adjusts height to be 1/2 width.
+		 * @param w The width of the component.
+		 * @param h The height of the component.
+		 */
+		override public function setSize(w:Number, h:Number):void
+		{
+			h = w / 2;
+			super.setSize(w, h);
+		}
 		
 		/**
 		 * Gets / sets the maximum value for the meter.
@@ -276,10 +274,8 @@ package com.bit101.components
 			_maxLabel.text = _maximum.toString();
 			update();
 		}
-		public function get maximum():Number
-		{
-			return _maximum;
-		}
+		
+		public function get maximum():Number { return _maximum; }
 		
 		/**
 		 * Gets / sets the minimum value for the meter.
@@ -290,10 +286,8 @@ package com.bit101.components
 			_minLabel.text = _minimum.toString();
 			update();
 		}
-		public function get minimum():Number
-		{
-			return _minimum;
-		}
+		
+		public function get minimum():Number { return _minimum; }
 		
 		/**
 		 * Gets / sets the current value for the meter.
@@ -303,10 +297,8 @@ package com.bit101.components
 			_value = val;
 			update();
 		}
-		public function get value():Number
-		{
-			return _value;
-		}
+		
+		public function get value():Number { return _value; }
 		
 		/**
 		 * Gets / sets the label shown on the meter.
@@ -316,10 +308,8 @@ package com.bit101.components
 			_labelText = value;
 			_label.text = _labelText;
 		}
-		public function get label():String
-		{
-			return _labelText;
-		}
+		
+		public function get label():String { return _labelText; }
 		
 		/**
 		 * Gets / sets whether or not value labels will be shown for max and min values.
@@ -330,10 +320,8 @@ package com.bit101.components
 			_minLabel.visible = _showValues;
 			_maxLabel.visible = _showValues;
 		}
-		public function get showValues():Boolean
-		{
-			return _showValues;
-		}
+		
+		public function get showValues():Boolean { return _showValues; }
 
 		/**
 		 * Gets / sets the damping value for the meter.
@@ -342,10 +330,11 @@ package com.bit101.components
 		{
 			_damp = value;
 		}
-		public function get damp():Number
-		{
-			return _damp;
-		}
-
+		
+		public function get damp():Number { return _damp; }
 	}
 }
+
+
+
+
