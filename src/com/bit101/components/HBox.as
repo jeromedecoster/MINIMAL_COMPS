@@ -56,10 +56,50 @@ package com.bit101.components
 			super(parent, xpos, ypos);
 		}
 		
+		//--------------------------------------
+		//  EVENTS
+		//--------------------------------------
+		
+		protected function onResize(event:Event):void
+		{
+			invalidate();
+		}
+		
+		//--------------------------------------
+		//  PRIVATE
+		//--------------------------------------
+		
+		protected function doAlignment():void
+		{
+			if(_alignment != NONE)
+			{
+				for(var i:int = 0; i < numChildren; i++)
+				{
+					var child:DisplayObject = getChildAt(i);
+					if(_alignment == TOP)
+					{
+						child.y = 0;
+					}
+					else if(_alignment == BOTTOM)
+					{
+						child.y = _height - child.height;
+					}
+					else if(_alignment == MIDDLE)
+					{
+						child.y = (_height - child.height) / 2;
+					}
+				}
+			}
+		}
+		
+		//--------------------------------------
+		//  PUBLIC
+		//--------------------------------------
+		
         /**
          * Override of addChild to force layout;
          */
-        override public function addChild(child:DisplayObject) : DisplayObject
+        override public function addChild(child:DisplayObject):DisplayObject
         {
             super.addChild(child);
             child.addEventListener(Event.RESIZE, onResize);
@@ -70,7 +110,7 @@ package com.bit101.components
         /**
          * Override of addChildAt to force layout;
          */
-        override public function addChildAt(child:DisplayObject, index:int) : DisplayObject
+        override public function addChildAt(child:DisplayObject, index:int):DisplayObject
         {
             super.addChildAt(child, index);
             child.addEventListener(Event.RESIZE, onResize);
@@ -100,38 +140,10 @@ package com.bit101.components
             return child;
         }
 
-		protected function onResize(event:Event):void
-		{
-			invalidate();
-		}
-		
-		protected function doAlignment():void
-		{
-			if(_alignment != NONE)
-			{
-				for(var i:int = 0; i < numChildren; i++)
-				{
-					var child:DisplayObject = getChildAt(i);
-					if(_alignment == TOP)
-					{
-						child.y = 0;
-					}
-					else if(_alignment == BOTTOM)
-					{
-						child.y = _height - child.height;
-					}
-					else if(_alignment == MIDDLE)
-					{
-						child.y = (_height - child.height) / 2;
-					}
-				}
-			}
-		}
-		
 		/**
 		 * Draws the visual ui of the component, in this case, laying out the sub components.
 		 */
-		override public function draw() : void
+		override public function draw():void
 		{
 			_width = 0;
 			_height = 0;
@@ -155,13 +167,11 @@ package com.bit101.components
 		 */
 		public function set spacing(s:Number):void
 		{
-			_spacing = s;
+			_spacing = Math.max(s, 0);
 			invalidate();
 		}
-		public function get spacing():Number
-		{
-			return _spacing;
-		}
+		
+		public function get spacing():Number { return _spacing; }
 
 		/**
 		 * Gets / sets the vertical alignment of components in the box.
@@ -171,9 +181,11 @@ package com.bit101.components
 			_alignment = value;
 			invalidate();
 		}
-		public function get alignment():String
-		{
-			return _alignment;
-		}
+		
+		public function get alignment():String { return _alignment; }
 	}
 }
+
+
+
+
