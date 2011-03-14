@@ -41,7 +41,6 @@ package com.bit101.components
 		public static const NONE:String = "none";
 		public static const ROMAN:String = "roman";
 		
-		
 		protected var _label:Label;
 		protected var _labelText:String = "";
 		protected var _knob:Sprite;
@@ -49,7 +48,6 @@ package com.bit101.components
 		protected var _choice:Number = 0;
 		protected var _labels:Sprite;
 		protected var _labelMode:String = ALPHABETIC;
-		
 		
 		/**
 		 * Constructor
@@ -69,14 +67,35 @@ package com.bit101.components
 			}
 		}
 		
+		//--------------------------------------
+		//  EVENTS
+		//--------------------------------------
+		
 		/**
-		 * Initializes the component.
+		 * Internal click handler.
+		 * @param event The MouseEvent passed by the system.
 		 */
-		override protected function init():void
+		protected function onClick(event:MouseEvent):void
 		{
-			super.init();
-			setSize(60, 60);
+			if (mouseX < _width / 2)
+			{
+				decrement();
+			}
+			else 
+			{
+				increment();
+			}
 		}
+		
+		protected function onLabelClick(event:Event):void
+		{
+			var lab:Label = event.target as Label;
+			choice = _labels.getChildIndex(lab);
+		}
+		
+		//--------------------------------------
+		//  PRIVATE
+		//--------------------------------------
 		
 		/**
 		 * Creates the children for this component
@@ -103,7 +122,7 @@ package com.bit101.components
 		 */
 		protected function decrement():void
 		{
-			if(_choice > 0)
+			if (_choice > 0)
 			{
 				_choice--;
 				draw();
@@ -116,7 +135,7 @@ package com.bit101.components
 		 */
 		protected function increment():void
 		{
-			if(_choice < _numChoices - 1)
+			if (_choice < _numChoices - 1)
 			{
 				_choice++;
 				draw();
@@ -129,7 +148,7 @@ package com.bit101.components
 		 */
 		protected function resetLabels():void
 		{
-			while(_labels.numChildren > 0)
+			while (_labels.numChildren > 0)
 			{
 				_labels.removeChildAt(0);
 			}
@@ -155,9 +174,18 @@ package com.bit101.components
 			_knob.y = _height / 2;
 		}
 		
-		///////////////////////////////////
-		// public methods
-		///////////////////////////////////
+		//--------------------------------------
+		//  PUBLIC
+		//--------------------------------------
+		
+		/**
+		 * Initializes the component.
+		 */
+		override protected function init():void
+		{
+			super.init();
+			setSize(60, 60);
+		}
 		
 		/**
 		 * Draws the visual ui of the component.
@@ -175,7 +203,7 @@ package com.bit101.components
 			
 			graphics.clear();
 			graphics.lineStyle(4, Style.BACKGROUND, .5);
-			for(var i:int = 0; i < _numChoices; i++)
+			for (var i:int = 0; i < _numChoices; i++)
 			{
 				var angle:Number = start + arc * i;
 				var sin:Number = Math.sin(angle);
@@ -189,20 +217,20 @@ package com.bit101.components
 				lab.buttonMode = true;
 				lab.useHandCursor = true;
 				lab.addEventListener(MouseEvent.CLICK, onLabelClick);
-				if(_labelMode == ALPHABETIC)
+				if (_labelMode == ALPHABETIC)
 				{
 					lab.text = String.fromCharCode(65 + i);
 				}
-				else if(_labelMode == NUMERIC)
+				else if (_labelMode == NUMERIC)
 				{
 					lab.text = (i + 1).toString();
 				}
-				else if(_labelMode == ROMAN)
+				else if (_labelMode == ROMAN)
 				{
 					var chars:Array = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 					lab.text = chars[i];
 				}
-				if(i != _choice)
+				if (i != _choice)
 				{
 					lab.alpha = 0.5;
 				}
@@ -213,60 +241,22 @@ package com.bit101.components
 			graphics.moveTo(_knob.x, _knob.y);
 			graphics.lineTo(_knob.x + Math.cos(angle) * (radius + 2), _knob.y + Math.sin(angle) * (radius + 2));
 			
-			
 			_label.text = _labelText;
 			_label.draw();
 			_label.x = _width / 2 - _label.width / 2;
 			_label.y = _height + 2;
 		}
 		
-		
-		
-		///////////////////////////////////
-		// event handler
-		///////////////////////////////////
-		
-		/**
-		 * Internal click handler.
-		 * @param event The MouseEvent passed by the system.
-		 */
-		protected function onClick(event:MouseEvent):void
-		{
-			if(mouseX < _width / 2)
-			{
-				decrement();
-			}
-			else 
-			{
-				increment();
-			}
-		}
-		
-		protected function onLabelClick(event:Event):void
-		{
-			var lab:Label = event.target as Label;
-			choice = _labels.getChildIndex(lab);
-		}
-		
-		
-		
-		
-		///////////////////////////////////
-		// getter/setters
-		///////////////////////////////////
-		
 		/**
 		 * Gets / sets the number of available choices (maximum of 10).
 		 */
 		public function set numChoices(value:uint):void
 		{
-			_numChoices = Math.min(value, 10);
+			_numChoices = Math.max(Math.min(value, 10), 2);
 			draw();
 		}
-		public function get numChoices():uint
-		{
-			return _numChoices;
-		}
+		
+		public function get numChoices():uint { return _numChoices; }
 		
 		/**
 		 * Gets / sets the current choice, keeping it in range of 0 to numChoices - 1.
@@ -277,10 +267,8 @@ package com.bit101.components
 			draw();
 			dispatchEvent(new Event(Event.CHANGE));
 		}
-		public function get choice():uint
-		{
-			return _choice;
-		}
+		
+		public function get choice():uint { return _choice; }
 		
 		/**
 		 * Specifies what will be used as labels for each choice. Valid values are "alphabetic", "numeric", and "none".
@@ -290,9 +278,11 @@ package com.bit101.components
 			_labelMode = value;
 			draw();
 		}
-		public function get labelMode():String
-		{
-			return _labelMode;
-		}
+		
+		public function get labelMode():String { return _labelMode; }
 	}
 }
+
+
+
+

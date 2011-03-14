@@ -58,12 +58,21 @@ package com.bit101.components
 		
 		private static var initialized:Boolean = initialize();
 		
+		//--------------------------------------
+		//  PRIVATE
+		//--------------------------------------
+		
 		private static function initialize():Boolean
 		{
 			if (!initialized) Font.registerFont(PFRondaSeven);
 			
 			return true;
 		}
+		
+		//--------------------------------------
+		//  PUBLIC
+		//--------------------------------------
+		
 		/**
 		 * Applies a preset style as a list of color values. Should be called before creating any components.
 		 */
@@ -104,3 +113,7 @@ package com.bit101.components
 		}
 	}
 }
+
+
+
+
