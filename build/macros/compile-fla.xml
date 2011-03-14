@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="macro-compile-fla">
+	
+	<!--
+	
+	Required in parent build file :
+	<taskdef resource="net/sf/antcontrib/antlib.xml" classpath="${basedir}/build/libs/ant-contrib-1.0b3.jar"/>
+	
+	-->
+	
+	<macrodef name="compile-fla">
+		<attribute name="dir" default="" />
+		<attribute name="name" default="" />
+		<attribute name="todir" default="" />
+		<sequential>
+			<var name="ok" value="false"/>
+			<if>
+				<or>
+					<equals arg1="@{dir}" arg2="" />
+					<equals arg1="@{name}" arg2="" />
+					<equals arg1="@{todir}" arg2="" />
+				</or>
+				<else>
+					
+					<input message="Generate @{name}.swc ?" defaultvalue="n" validargs="y,n" addproperty="generate"/>
+					
+					<if>
+						<equals arg1="${generate}" arg2="y" />
+						<then>
+							<var name="ok" value="true"/>
+						</then>
+					</if>
+				</else>
+			</if>
+			
+			<!--
+			<echo message="ok:${ok}"/>
+			-->
+			
+			<if>
+				<equals arg1="${ok}" arg2="true" />
+				<then>
+					<fdt.flashCompile file="@{dir}/@{name}.fla" timeout="5000"/>
+					<delete file="@{dir}/@{name}.swf"/>
+					<move file="@{dir}/@{name}.swc" todir="@{todir}"/>
+				</then>
+			</if>
+		</sequential>
+	</macrodef>
+	
+</project>
+
+<!--
+	options
+	
+	-output <filename>
+			alias -o
+			the filename of the SWF movie to create
+	
+	-include-sources [path-element] [...]
+			alias -is
+			a list of directories and source files to include in the output SWC
+			(repeatable)
+	
+	-compiler.external-library-path [path-element] [...]
+			alias -el
+			list of SWC files or directories to compile against but to omit from
+			linking (repeatable)
+	
+	-static-link-runtime-shared-libraries
+			alias -static-rsls
+			statically link the libraries specified by the
+			-runtime-shared-libraries-path option.
+	
+	-compiler.verbose-stacktraces
+			alias -verbose-stacktraces
+			save callstack information to the SWF for debugging (advanced)
+	
+	-compiler.headless-server
+			alias -headless-server
+			a flag to set when Flex is running on a server without a display
+			(advanced)
+	
+	-compiler.library-path [path-element] [...]
+			alias -library-path
+			list of SWC files or directories that contain SWC files (repeatable)
+	
+	-link-report <filename>
+			Output a XML-formatted report of all definitions linked into the
+			application. (advanced)
+	
+-->
+
+
+
+
+
+

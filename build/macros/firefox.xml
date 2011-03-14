@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="macro-firefox">
+	
+	<!--
+	
+	Required in parent build file :
+	<taskdef resource="net/sf/antcontrib/antlib.xml" classpath="${basedir}/build/libs/ant-contrib-1.0b3.jar"/>
+	
+	-->
+	
+	<macrodef name="firefox">
+		<!-- required attributes -->
+		<attribute name="file" default=""/>
+		<sequential>
+			<if>
+				<equals arg1="@{file}" arg2="" />
+				<then>
+					<fail message="Attribute 'file' required" />
+				</then>
+			</if>
+			
+			<exec executable="open">
+				<arg line="-a Firefox @{file}"/>
+			</exec>
+			
+		</sequential>
+	</macrodef>
+	
+</project>
+
+
+
+
+
+

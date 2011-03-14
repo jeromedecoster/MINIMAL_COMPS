@@ -1,0 +1,839 @@
+<report>
+  <scripts>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/framework.swc(mx.core:EmbeddedFontRegistry)" mod="1265215569950" size="5566" optimizedsize="3299">
+      <def id="mx.core:EmbeddedFontRegistry" />
+      <pre id="mx.core:IEmbeddedFontRegistry" />
+      <pre id="Object" />
+      <dep id="flash.text.engine:FontDescription" />
+      <dep id="mx.resources:IResourceManager" />
+      <dep id="flash.utils:Dictionary" />
+      <dep id="mx.managers:ISystemManager" />
+      <dep id="mx.core:EmbeddedFont" />
+      <dep id="mx.core:mx_internal" />
+      <dep id="flash.text:TextField" />
+      <dep id="mx.resources:ResourceManager" />
+      <dep id="AS3" />
+      <dep id="mx.core:Singleton" />
+      <dep id="flash.text:FontStyle" />
+      <dep id="mx.core:IFlexModuleFactory" />
+      <dep id="Error" />
+      <dep id="flash.system:Capabilities" />
+      <dep id="trace" />
+      <dep id="flash.text:TextFormat" />
+      <dep id="flash.utils:getQualifiedClassName" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.events:ModuleEvent)" mod="1265215589982" size="1341" optimizedsize="729">
+      <def id="mx.events:ModuleEvent" />
+      <pre id="flash.events:ProgressEvent" />
+      <dep id="mx.core:mx_internal" />
+      <dep id="flash.events:Event" />
+      <dep id="AS3" />
+      <dep id="mx.modules:IModuleInfo" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/Panel.as" mod="1296147778000" size="3250" optimizedsize="1655">
+      <def id="com.bit101.components:Panel" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.display:DisplayObject" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:Sprite" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/Window.as" mod="1296147778000" size="5861" optimizedsize="3014">
+      <def id="com.bit101.components:Window" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="com.bit101.components:Panel" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="com.bit101.components:PushButton" />
+      <dep id="flash.display:DisplayObject" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:Sprite" />
+      <dep id="flash.events:Event" />
+      <dep id="AS3" />
+      <dep id="flash.display:Shape" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.events:ResourceEvent)" mod="1265215589575" size="1067" optimizedsize="571">
+      <def id="mx.events:ResourceEvent" />
+      <pre id="flash.events:ProgressEvent" />
+      <dep id="mx.core:mx_internal" />
+      <dep id="flash.events:Event" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.core:IChildList)" mod="1265215569575" size="1465" optimizedsize="497">
+      <def id="mx.core:IChildList" />
+      <pre id="Object" />
+      <dep id="flash.display:DisplayObject" />
+      <dep id="flash.geom:Point" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.managers:ISystemManager)" mod="1265215573247" size="3412" optimizedsize="1009">
+      <def id="mx.managers:ISystemManager" />
+      <pre id="mx.core:IFlexModuleFactory" />
+      <pre id="flash.events:IEventDispatcher" />
+      <pre id="mx.core:IChildList" />
+      <pre id="Object" />
+      <dep id="flash.display:LoaderInfo" />
+      <dep id="flash.geom:Rectangle" />
+      <dep id="flash.display:DisplayObject" />
+      <dep id="flash.display:Sprite" />
+      <dep id="flash.display:Stage" />
+      <dep id="flash.text:TextFormat" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/charts/BarChart.as" mod="1296147778000" size="2034" optimizedsize="1223">
+      <def id="com.bit101.charts:BarChart" />
+      <pre id="com.bit101.charts:Chart" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.modules:IModuleInfo)" mod="1265215593435" size="1726" optimizedsize="534">
+      <def id="mx.modules:IModuleInfo" />
+      <pre id="flash.events:IEventDispatcher" />
+      <pre id="Object" />
+      <dep id="mx.core:IFlexModuleFactory" />
+      <dep id="mx.events:ModuleEvent" />
+      <dep id="flash.system:ApplicationDomain" />
+      <dep id="flash.utils:ByteArray" />
+      <dep id="flash.system:SecurityDomain" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/VBox.as" mod="1296147778000" size="2719" optimizedsize="1391">
+      <def id="com.bit101.components:VBox" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.display:DisplayObject" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.events:Event" />
+      <dep id="AS3" />
+      <dep id="Math" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/Label.as" mod="1296147778000" size="2154" optimizedsize="1223">
+      <def id="com.bit101.components:Label" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.text:TextFieldAutoSize" />
+      <dep id="flash.text:TextField" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.events:Event" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+      <dep id="flash.text:TextFormat" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/framework.swc(mx.core:IEmbeddedFontRegistry)" mod="1265215569060" size="1356" optimizedsize="440">
+      <def id="mx.core:IEmbeddedFontRegistry" />
+      <pre id="Object" />
+      <dep id="mx.core:IFlexModuleFactory" />
+      <dep id="mx.core:EmbeddedFont" />
+      <dep id="mx.managers:ISystemManager" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.core:IFlexModule)" mod="1265215569982" size="556" optimizedsize="188">
+      <def id="mx.core:IFlexModule" />
+      <pre id="Object" />
+      <dep id="mx.core:IFlexModuleFactory" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/IndicatorLight.as" mod="1296147778000" size="3089" optimizedsize="1593">
+      <def id="com.bit101.components:IndicatorLight" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.geom:Matrix" />
+      <dep id="flash.events:TimerEvent" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.utils:Timer" />
+      <dep id="flash.display:GradientType" />
+      <dep id="AS3" />
+      <dep id="flash.display:Shape" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/RotarySelector.as" mod="1296147778000" size="5160" optimizedsize="2861">
+      <def id="com.bit101.components:RotarySelector" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:Sprite" />
+      <dep id="flash.events:Event" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+      <dep id="Math" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/locale/en_US/automation_agent_rb.swc(mx.resources:IResourceBundle)" mod="1272281844788" size="719" optimizedsize="216">
+      <def id="mx.resources:IResourceBundle" />
+      <pre id="Object" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/UISlider.as" mod="1296535553000" size="3707" optimizedsize="1810">
+      <def id="com.bit101.components:UISlider" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.events:Event" />
+      <dep id="AS3" />
+      <dep id="Math" />
+      <dep id="com.bit101.components:Slider" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/locale/en_US/automation_agent_rb.swc(mx.resources:ResourceBundle)" mod="1272281844663" size="1754" optimizedsize="851">
+      <def id="mx.resources:ResourceBundle" />
+      <pre id="mx.resources:IResourceBundle" />
+      <pre id="Object" />
+      <dep id="mx.core:mx_internal" />
+      <dep id="Error" />
+      <dep id="flash.system:ApplicationDomain" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/RangeSlider.as" mod="1299839176000" size="8288" optimizedsize="4339">
+      <def id="com.bit101.components:RangeSlider" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.geom:Rectangle" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:Sprite" />
+      <dep id="flash.events:Event" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+      <dep id="Math" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.managers:SystemManagerGlobals)" mod="1265215573232" size="845" optimizedsize="429">
+      <def id="mx.managers:SystemManagerGlobals" />
+      <pre id="Object" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/ColorChooser.as" mod="1296147778000" size="7426" optimizedsize="4014">
+      <def id="com.bit101.components:ColorChooser" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="flash.geom:Matrix" />
+      <dep id="flash.display:SpreadMethod" />
+      <dep id="flash.display:Bitmap" />
+      <dep id="flash.display:BlendMode" />
+      <dep id="flash.geom:Point" />
+      <dep id="com.bit101.components:InputText" />
+      <dep id="flash.events:Event" />
+      <dep id="flash.display:InterpolationMethod" />
+      <dep id="AS3" />
+      <dep id="Math" />
+      <dep id="flash.display:DisplayObject" />
+      <dep id="flash.display:BitmapData" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:Sprite" />
+      <dep id="flash.display:Stage" />
+      <dep id="flash.display:Graphics" />
+      <dep id="flash.display:GradientType" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/FPSMeter.as" mod="1296147778000" size="2234" optimizedsize="1198">
+      <def id="com.bit101.components:FPSMeter" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.utils:getTimer" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.events:Event" />
+      <dep id="AS3" />
+      <dep id="Math" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/ScrollPane.as" mod="1297254164000" size="3610" optimizedsize="2031">
+      <def id="com.bit101.components:ScrollPane" />
+      <pre id="com.bit101.components:Panel" />
+      <dep id="com.bit101.components:VScrollBar" />
+      <dep id="flash.geom:Rectangle" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.events:Event" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+      <dep id="Math" />
+      <dep id="com.bit101.components:HScrollBar" />
+      <dep id="flash.display:Shape" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/RadioButton.as" mod="1296147778000" size="3412" optimizedsize="1917">
+      <def id="com.bit101.components:RadioButton" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:Sprite" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/ProgressBar.as" mod="1296147778000" size="2104" optimizedsize="1130">
+      <def id="com.bit101.components:ProgressBar" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:Sprite" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+      <dep id="Math" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.core:Singleton)" mod="1265215570138" size="1071" optimizedsize="555">
+      <def id="mx.core:Singleton" />
+      <pre id="Object" />
+      <dep id="mx.core:mx_internal" />
+      <dep id="Error" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/CheckBox.as" mod="1296147778000" size="2526" optimizedsize="1421">
+      <def id="com.bit101.components:CheckBox" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:Sprite" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+    </script>
+    <script name="_be59b2908603e49dfff797adc2575bb0f44b53eeed010cf59c2deb33984ff609_mx_core_FlexModuleFactory.as" mod="1300112338019" size="3963" optimizedsize="2013">
+      <def id="_be59b2908603e49dfff797adc2575bb0f44b53eeed010cf59c2deb33984ff609_mx_core_FlexModuleFactory" />
+      <pre id="flashx.textLayout.compose:ISWFContext" />
+      <pre id="mx.core:IFlexModuleFactory" />
+      <pre id="flash.display:Sprite" />
+      <dep id="mx.core:EmbeddedFontRegistry" />
+      <dep id="flash.utils:Dictionary" />
+      <dep id="mx.core:IFlexModule" />
+      <dep id="flash.system:Security" />
+      <dep id="flash.system:ApplicationDomain" />
+      <dep id="flash.events:Event" />
+      <dep id="AS3" />
+      <dep id="mx.core:Singleton" />
+      <dep id="flash.utils:getDefinitionByName" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.resources:LocaleSorter)" mod="1265215595247" size="10083" optimizedsize="6859">
+      <def id="mx.resources:LocaleSorter" />
+      <pre id="Object" />
+      <dep id="mx.core:mx_internal" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/charts/Chart.as" mod="1296147778000" size="4595" optimizedsize="2376">
+      <def id="com.bit101.charts:Chart" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="com.bit101.components:Panel" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="AS3" />
+      <dep id="Math" />
+      <dep id="flash.display:Shape" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.events:Request)" mod="1265215589529" size="896" optimizedsize="481">
+      <def id="mx.events:Request" />
+      <pre id="flash.events:Event" />
+      <dep id="mx.core:mx_internal" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/Style.as" mod="1299769601000" size="1935" optimizedsize="1169">
+      <def id="com.bit101.components:Style" />
+      <pre id="Object" />
+      <dep id="com.bit101.fonts:PFRondaSeven" />
+      <dep id="flash.text:Font" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/VUISlider.as" mod="1296147778000" size="1532" optimizedsize="891">
+      <def id="com.bit101.components:VUISlider" />
+      <pre id="com.bit101.components:UISlider" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="com.bit101.components:VSlider" />
+      <dep id="AS3" />
+      <dep id="Math" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.modules:ModuleManagerGlobals)" mod="1265215593419" size="504" optimizedsize="211">
+      <def id="mx.modules:ModuleManagerGlobals" />
+      <pre id="Object" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.resources:ResourceManager)" mod="1265215595294" size="1130" optimizedsize="657">
+      <def id="mx.resources:ResourceManager" />
+      <pre id="Object" />
+      <dep id="mx.resources:IResourceManager" />
+      <dep id="mx.core:mx_internal" />
+      <dep id="Error" />
+      <dep id="AS3" />
+      <dep id="mx.core:Singleton" />
+      <dep id="mx.resources:ResourceManagerImpl" />
+      <dep id="flash.utils:getDefinitionByName" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/Meter.as" mod="1296535553000" size="5620" optimizedsize="3064">
+      <def id="com.bit101.components:Meter" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.filters:DropShadowFilter" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:Sprite" />
+      <dep id="flash.events:Event" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+      <dep id="Math" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/HUISlider.as" mod="1296147778000" size="1342" optimizedsize="785">
+      <def id="com.bit101.components:HUISlider" />
+      <pre id="com.bit101.components:UISlider" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="AS3" />
+      <dep id="com.bit101.components:HSlider" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/InputText.as" mod="1296147778000" size="3264" optimizedsize="1780">
+      <def id="com.bit101.components:InputText" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.text:TextFieldType" />
+      <dep id="flash.text:TextField" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:Sprite" />
+      <dep id="flash.events:Event" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+      <dep id="flash.text:TextFormat" />
+      <dep id="Math" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.modules:ModuleManager)" mod="1265215593419" size="10964" optimizedsize="5757">
+      <def id="mx.modules:ModuleManager" />
+      <pre id="flash.events:EventDispatcher" />
+      <pre id="mx.modules:IModuleInfo" />
+      <pre id="Object" />
+      <dep id="flash.utils:Dictionary" />
+      <dep id="mx.core:mx_internal" />
+      <dep id="flash.system:LoaderContext" />
+      <dep id="flash.events:Event" />
+      <dep id="flash.utils:ByteArray" />
+      <dep id="AS3" />
+      <dep id="flash.net:URLRequest" />
+      <dep id="flash.display:Loader" />
+      <dep id="flash.events:IOErrorEvent" />
+      <dep id="flash.events:SecurityErrorEvent" />
+      <dep id="mx.core:IFlexModuleFactory" />
+      <dep id="mx.modules:ModuleManagerGlobals" />
+      <dep id="flash.system:Security" />
+      <dep id="mx.events:Request" />
+      <dep id="mx.events:ModuleEvent" />
+      <dep id="flash.events:ProgressEvent" />
+      <dep id="Error" />
+      <dep id="flash.system:ApplicationDomain" />
+      <dep id="flash.system:SecurityDomain" />
+      <dep id="flash.utils:getQualifiedClassName" />
+      <dep id="flash.events:ErrorEvent" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/framework.swc(mx.core:EmbeddedFont)" mod="1265215569997" size="1308" optimizedsize="625">
+      <def id="mx.core:EmbeddedFont" />
+      <pre id="Object" />
+      <dep id="mx.core:EmbeddedFontRegistry" />
+      <dep id="mx.core:mx_internal" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/VRangeSlider.as" mod="1296147778000" size="729" optimizedsize="421">
+      <def id="com.bit101.components:VRangeSlider" />
+      <pre id="com.bit101.components:RangeSlider" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/Text.as" mod="1296147778000" size="3173" optimizedsize="1723">
+      <def id="com.bit101.components:Text" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="com.bit101.components:Panel" />
+      <dep id="flash.text:TextFieldType" />
+      <dep id="flash.text:TextField" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.events:Event" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+      <dep id="flash.text:TextFormat" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.core:IFlexModuleFactory)" mod="1265215569200" size="1411" optimizedsize="437">
+      <def id="mx.core:IFlexModuleFactory" />
+      <pre id="Object" />
+      <dep id="flash.utils:Dictionary" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/HScrollBar.as" mod="1296147778000" size="731" optimizedsize="429">
+      <def id="com.bit101.components:HScrollBar" />
+      <pre id="com.bit101.components:ScrollBar" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="AS3" />
+      <dep id="com.bit101.components:Slider" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.resources:IResourceManager)" mod="1265215595325" size="3584" optimizedsize="1031">
+      <def id="mx.resources:IResourceManager" />
+      <pre id="flash.events:IEventDispatcher" />
+      <pre id="Object" />
+      <dep id="mx.resources:IResourceBundle" />
+      <dep id="flash.system:ApplicationDomain" />
+      <dep id="flash.system:SecurityDomain" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/HBox.as" mod="1296147778000" size="2754" optimizedsize="1422">
+      <def id="com.bit101.components:HBox" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.display:DisplayObject" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.events:Event" />
+      <dep id="AS3" />
+      <dep id="Math" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/List.as" mod="1296147778000" size="7642" optimizedsize="3753">
+      <def id="com.bit101.components:List" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="com.bit101.components:VScrollBar" />
+      <dep id="com.bit101.components:Panel" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:Sprite" />
+      <dep id="com.bit101.components:ListItem" />
+      <dep id="flash.events:Event" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+      <dep id="Math" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.resources:ResourceManagerImpl)" mod="1265215595310" size="12011" optimizedsize="6341">
+      <def id="mx.resources:ResourceManagerImpl" />
+      <pre id="mx.resources:IResourceManager" />
+      <pre id="flash.events:EventDispatcher" />
+      <pre id="Object" />
+      <dep id="mx.events:ResourceEvent" />
+      <dep id="flash.events:FocusEvent" />
+      <dep id="mx.core:mx_internal" />
+      <dep id="flash.events:TimerEvent" />
+      <dep id="mx.resources:IResourceBundle" />
+      <dep id="flash.utils:Timer" />
+      <dep id="flash.events:IEventDispatcher" />
+      <dep id="flash.events:Event" />
+      <dep id="mx.events:FlexEvent" />
+      <dep id="AS3" />
+      <dep id="mx.modules:ModuleManager" />
+      <dep id="mx.utils:StringUtil" />
+      <dep id="mx.managers:SystemManagerGlobals" />
+      <dep id="mx.events:ModuleEvent" />
+      <dep id="mx.resources:LocaleSorter" />
+      <dep id="mx.resources:IResourceModule" />
+      <dep id="mx.resources:ResourceBundle" />
+      <dep id="Error" />
+      <dep id="flash.system:ApplicationDomain" />
+      <dep id="flash.system:Capabilities" />
+      <dep id="flash.system:SecurityDomain" />
+      <dep id="trace" />
+      <dep id="mx.modules:IModuleInfo" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/textLayout.swc(flashx.textLayout.compose:ISWFContext)" mod="1271884760811" size="679" optimizedsize="234">
+      <def id="flashx.textLayout.compose:ISWFContext" />
+      <pre id="Object" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/locale/en_US/automation_agent_rb.swc(mx.core:mx_internal)" mod="1272281784179" size="182" optimizedsize="109">
+      <def id="mx.core:mx_internal" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.events:FlexEvent)" mod="1265215589607" size="3236" optimizedsize="2026">
+      <def id="mx.events:FlexEvent" />
+      <pre id="flash.events:Event" />
+      <dep id="mx.core:mx_internal" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/TextArea.as" mod="1296147778000" size="2835" optimizedsize="1478">
+      <def id="com.bit101.components:TextArea" />
+      <pre id="com.bit101.components:Text" />
+      <dep id="com.bit101.components:VScrollBar" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.events:Event" />
+      <dep id="AS3" />
+      <dep id="Math" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/ScrollBar.as" mod="1296147778000" size="8496" optimizedsize="4245">
+      <def id="com.bit101.components:ScrollBar" />
+      <pre id="com.bit101.components:Component" />
+      <pre id="com.bit101.components:Slider" />
+      <dep id="flash.geom:Rectangle" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="com.bit101.components:PushButton" />
+      <dep id="flash.events:TimerEvent" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.utils:Timer" />
+      <dep id="flash.events:Event" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+      <dep id="Math" />
+      <dep id="flash.display:Shape" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/charts/PieChart.as" mod="1296147778000" size="3997" optimizedsize="2344">
+      <def id="com.bit101.charts:PieChart" />
+      <pre id="com.bit101.charts:Chart" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:Sprite" />
+      <dep id="AS3" />
+      <dep id="Math" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/PushButton.as" mod="1296535553000" size="3697" optimizedsize="2012">
+      <def id="com.bit101.components:PushButton" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:Sprite" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/HSlider.as" mod="1296147778000" size="703" optimizedsize="410">
+      <def id="com.bit101.components:HSlider" />
+      <pre id="com.bit101.components:Slider" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/VSlider.as" mod="1296147778000" size="701" optimizedsize="408">
+      <def id="com.bit101.components:VSlider" />
+      <pre id="com.bit101.components:Slider" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.utils:StringUtil)" mod="1265215574904" size="2756" optimizedsize="1459">
+      <def id="mx.utils:StringUtil" />
+      <pre id="Object" />
+      <dep id="mx.core:mx_internal" />
+      <dep id="RegExp" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/VScrollBar.as" mod="1296147778000" size="729" optimizedsize="427">
+      <def id="com.bit101.components:VScrollBar" />
+      <pre id="com.bit101.components:ScrollBar" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="AS3" />
+      <dep id="com.bit101.components:Slider" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/charts/LineChart.as" mod="1296147778000" size="2036" optimizedsize="1233">
+      <def id="com.bit101.charts:LineChart" />
+      <pre id="com.bit101.charts:Chart" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/utils/MinimalConfigurator.as" mod="1296535553000" size="3062" optimizedsize="1997">
+      <def id="com.bit101.utils:MinimalConfigurator" />
+      <pre id="flash.events:EventDispatcher" />
+      <dep id="com.bit101.components:WheelMenu" />
+      <dep id="com.bit101.components:PushButton" />
+      <dep id="com.bit101.components:Knob" />
+      <dep id="com.bit101.components:List" />
+      <dep id="com.bit101.components:RadioButton" />
+      <dep id="com.bit101.components:InputText" />
+      <dep id="com.bit101.components:ColorChooser" />
+      <dep id="com.bit101.components:HUISlider" />
+      <dep id="flash.events:Event" />
+      <dep id="com.bit101.components:VSlider" />
+      <dep id="flash.net:URLRequest" />
+      <dep id="com.bit101.components:Window" />
+      <dep id="com.bit101.components:ScrollBar" />
+      <dep id="com.bit101.components:NumericStepper" />
+      <dep id="com.bit101.components:Calendar" />
+      <dep id="com.bit101.components:HRangeSlider" />
+      <dep id="com.bit101.components:ProgressBar" />
+      <dep id="flash.net:URLLoader" />
+      <dep id="com.bit101.components:VRangeSlider" />
+      <dep id="com.bit101.components:Text" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="com.bit101.components:ListItem" />
+      <dep id="com.bit101.components:FPSMeter" />
+      <dep id="com.bit101.components:RotarySelector" />
+      <dep id="XML" />
+      <dep id="com.bit101.components:Slider" />
+      <dep id="flash.utils:getDefinitionByName" />
+      <dep id="com.bit101.components:HSlider" />
+      <dep id="com.bit101.components:RangeSlider" />
+      <dep id="com.bit101.components:VBox" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="com.bit101.components:Component" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="com.bit101.components:CheckBox" />
+      <dep id="AS3" />
+      <dep id="com.bit101.components:ComboBox" />
+      <dep id="com.bit101.components:TextArea" />
+      <dep id="com.bit101.components:HScrollBar" />
+      <dep id="com.bit101.components:VScrollBar" />
+      <dep id="com.bit101.components:Panel" />
+      <dep id="com.bit101.components:IndicatorLight" />
+      <dep id="Error" />
+      <dep id="com.bit101.components:VUISlider" />
+      <dep id="com.bit101.components:ScrollPane" />
+      <dep id="com.bit101.components:Accordion" />
+      <dep id="com.bit101.components:HBox" />
+      <dep id="com.bit101.components:Meter" />
+      <dep id="com.bit101.components:UISlider" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/Slider.as" mod="1296147778000" size="5310" optimizedsize="2759">
+      <def id="com.bit101.components:Slider" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.geom:Rectangle" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:Sprite" />
+      <dep id="flash.events:Event" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+      <dep id="Math" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/Component.as" mod="1299585357000" size="3488" optimizedsize="1617">
+      <def id="com.bit101.components:Component" />
+      <pre id="flash.display:Sprite" />
+      <dep id="flash.filters:DropShadowFilter" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:StageScaleMode" />
+      <dep id="flash.display:Stage" />
+      <dep id="flash.events:Event" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+      <dep id="Math" />
+      <dep id="flash.display:StageAlign" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/NumericStepper.as" mod="1296147778000" size="5133" optimizedsize="2486">
+      <def id="com.bit101.components:NumericStepper" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="com.bit101.components:PushButton" />
+      <dep id="flash.events:TimerEvent" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="Error" />
+      <dep id="flash.utils:Timer" />
+      <dep id="com.bit101.components:InputText" />
+      <dep id="flash.events:Event" />
+      <dep id="AS3" />
+      <dep id="Math" />
+    </script>
+    <script name="/Volumes/Documents/SDK/flex_sdk_4.1.0.16076/frameworks/libs/flash-integration.swc(mx.resources:IResourceModule)" mod="1265215595310" size="535" optimizedsize="178">
+      <def id="mx.resources:IResourceModule" />
+      <pre id="Object" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/ComboBox.as" mod="1296147778000" size="7793" optimizedsize="3460">
+      <def id="com.bit101.components:ComboBox" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.geom:Rectangle" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="com.bit101.components:PushButton" />
+      <dep id="com.bit101.components:List" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.geom:Point" />
+      <dep id="flash.display:Stage" />
+      <dep id="flash.events:Event" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/Calendar.as" mod="1296147778000" size="4727" optimizedsize="2806">
+      <def id="com.bit101.components:Calendar" />
+      <pre id="com.bit101.components:Panel" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="com.bit101.components:PushButton" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="Date" />
+      <dep id="flash.events:Event" />
+      <dep id="AS3" />
+      <dep id="Math" />
+      <dep id="flash.display:Shape" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/WheelMenu.as" mod="1296147778000" size="7261" optimizedsize="3700">
+      <def id="com.bit101.components:WheelMenu" />
+      <pre id="com.bit101.components:Component" />
+      <pre id="flash.display:Sprite" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="flash.filters:DropShadowFilter" />
+      <dep id="flash.display:DisplayObject" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.events:Event" />
+      <dep id="AS3" />
+      <dep id="Math" />
+      <dep id="flash.display:Shape" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/libs/font.swc(com.bit101.fonts:PFRondaSeven)" mod="1299769116437" size="291" optimizedsize="196">
+      <def id="com.bit101.fonts:PFRondaSeven" />
+      <pre id="flash.text:Font" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/HRangeSlider.as" mod="1296147778000" size="731" optimizedsize="423">
+      <def id="com.bit101.components:HRangeSlider" />
+      <pre id="com.bit101.components:RangeSlider" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/Knob.as" mod="1299839217000" size="6912" optimizedsize="3572">
+      <def id="com.bit101.components:Knob" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:Sprite" />
+      <dep id="flash.events:Event" />
+      <dep id="com.bit101.components:Style" />
+      <dep id="AS3" />
+      <dep id="Math" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/ListItem.as" mod="1296147778000" size="3386" optimizedsize="1791">
+      <def id="com.bit101.components:ListItem" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="com.bit101.components:Label" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="AS3" />
+    </script>
+    <script name="/Volumes/Documents/GIT/MINIMAL_COMPS/src/com/bit101/components/Accordion.as" mod="1299841428000" size="2928" optimizedsize="1668">
+      <def id="com.bit101.components:Accordion" />
+      <pre id="com.bit101.components:Component" />
+      <dep id="com.bit101.components:VBox" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.events:Event" />
+      <dep id="AS3" />
+      <dep id="Math" />
+      <dep id="com.bit101.components:Window" />
+    </script>
+  </scripts>
+  <external-defs>
+    <ext id="flash.utils:Dictionary" />
+    <ext id="flash.text:TextFieldAutoSize" />
+    <ext id="flash.display:Graphics" />
+    <ext id="flash.display:Bitmap" />
+    <ext id="flash.system:Security" />
+    <ext id="flash.geom:Matrix" />
+    <ext id="flash.events:FocusEvent" />
+    <ext id="flash.display:BlendMode" />
+    <ext id="flash.geom:Rectangle" />
+    <ext id="flash.system:Capabilities" />
+    <ext id="flash.system:ApplicationDomain" />
+    <ext id="flash.display:StageAlign" />
+    <ext id="flash.text:TextFieldType" />
+    <ext id="flash.display:Stage" />
+    <ext id="flash.geom:Point" />
+    <ext id="flash.text:FontStyle" />
+    <ext id="flash.events:EventDispatcher" />
+    <ext id="flash.filters:DropShadowFilter" />
+    <ext id="flash.system:SecurityDomain" />
+    <ext id="flash.net:URLLoader" />
+    <ext id="flash.display:Sprite" />
+    <ext id="XML" />
+    <ext id="flash.display:Shape" />
+    <ext id="flash.events:IEventDispatcher" />
+    <ext id="flash.events:MouseEvent" />
+    <ext id="Date" />
+    <ext id="flash.utils:Timer" />
+    <ext id="flash.utils:ByteArray" />
+    <ext id="flash.net:URLRequest" />
+    <ext id="flash.events:ProgressEvent" />
+    <ext id="flash.display:InterpolationMethod" />
+    <ext id="flash.events:IOErrorEvent" />
+    <ext id="flash.events:SecurityErrorEvent" />
+    <ext id="flash.utils:getTimer" />
+    <ext id="Error" />
+    <ext id="flash.display:GradientType" />
+    <ext id="flash.display:StageScaleMode" />
+    <ext id="flash.display:Loader" />
+    <ext id="flash.display:BitmapData" />
+    <ext id="flash.text.engine:FontDescription" />
+    <ext id="flash.events:TimerEvent" />
+    <ext id="AS3" />
+    <ext id="Math" />
+    <ext id="flash.text:Font" />
+    <ext id="flash.utils:getQualifiedClassName" />
+    <ext id="flash.system:LoaderContext" />
+    <ext id="flash.text:TextFormat" />
+    <ext id="flash.utils:getDefinitionByName" />
+    <ext id="RegExp" />
+    <ext id="Object" />
+    <ext id="flash.display:LoaderInfo" />
+    <ext id="flash.display:DisplayObject" />
+    <ext id="flash.events:Event" />
+    <ext id="flash.display:DisplayObjectContainer" />
+    <ext id="trace" />
+    <ext id="flash.events:ErrorEvent" />
+    <ext id="flash.display:SpreadMethod" />
+    <ext id="flash.text:TextField" />
+  </external-defs>
+</report>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="minimal-comps" basedir="../">
+	
+	<property file="${basedir}/build/build.properties"/>
+	
+	<!-- System environment must contain FLEX_HOME variable that points to Flex SDK -->
+	<property name="FLEX_HOME" location="${flex.dir}" />
+	
+	<taskdef resource="net/sf/antcontrib/antlib.xml" classpath="${basedir}/build/libs/ant-contrib-1.0b3.jar"/>
+	
+	<import file="${build.dir}/macros/asdoc.xml" />
+	<import file="${build.dir}/macros/compc.xml" />
+	<import file="${build.dir}/macros/compile-fla.xml" />
+	<import file="${build.dir}/macros/mxmlc.xml" />
+	<import file="${build.dir}/macros/firefox.xml" />
+	
+	<!-- 
+	
+	AS
+	
+	-->
+	
+	<target name="test-vbox-compile">
+		
+		<mxmlc file-specs="${src.dir}/prj/TestVBox.as"
+				output="${bin.dir}/test_vbox.swf"
+				source-path="${src.dir}"
+				library-path="${libs.dir}/font.swc"
+				debug="true"/>
+		
+		<antcall target="test-vbox-launch"/>
+	</target>
+	
+	<target name="test-vbox-launch">
+		<firefox file="${bin.dir}/test_vbox.swf"/>
+	</target>
+	
+	<!--
+	<target name="test_create">
+		<java jar="${flex.mxmlc.jar}" dir="${flex.dir}/frameworks" fork="true" failonerror="true">
+			<arg value="-file-specs=${basedir}/test/Test.as"/>
+			<arg value="-source-path=${basedir}/test/"/>
+			<arg value="-library-path+=${project.swc}"/>
+			<arg value="-target-player=10"/>
+			<arg value="-output=${bin.dir}/test.swf"/>
+			<arg value="-static-link-runtime-shared-libraries=true"/>
+					            <arg value="-verbose-stacktraces=true"/>
+					            <arg value="-headless-server=true"/>
+		</java>
+		<antcall target="test_launch"/>
+	</target>
+	
+	<target name="test_launch">
+		<exec executable="open">
+			<arg line="-a Firefox ${bin.dir}/test.swf"/>
+		</exec>
+	</target>
+	
+	<target name="default_values_compile">
+		<fdt.launch.application
+					projectname="MINIMALCOMPS"
+					mainclass="${basedir}/src-test/DefaultValuesDoc.as"
+					target="${bin.dir}/default_values.swf" 
+					debug="false"/>
+		<antcall target="default_values_launch"/>
+	</target>
+	
+	<target name="default_values_launch">
+		<exec executable="open">
+			<arg line="-a Firefox ${bin.dir}/default_values.swf"/>
+		</exec>
+	</target>
+	
+	<target name="actions1_compile">
+			<fdt.launch.application
+						projectname="MINIMALCOMPS"
+						mainclass="${basedir}/src-test/Actions1Doc.as"
+						target="${bin.dir}/actions1.swf" 
+						debug="false"/>
+			<antcall target="actions1_launch"/>
+		</target>
+		
+		<target name="actions1_launch">
+			<exec executable="open">
+				<arg line="-a Firefox ${bin.dir}/actions1.swf"/>
+			</exec>
+		</target>
+	-->
+	
+	<!-- 
+	
+	ASDOC
+		 
+	-->
+	
+	<target name="asdoc-create" depends="swc-create">
+			
+		<fileset id="sources" dir="${src.dir}/">
+			<include name="com/bit101/**/*.as"/>
+		</fileset>
+		
+		<pathconvert property="doc-classes" pathsep=" " refid="sources">
+			<chainedmapper>
+				<regexpmapper from="${src.dir}/(.*)" to="\1"/>
+				<packagemapper from="*.as" to="*"/>
+			</chainedmapper>
+		</pathconvert>
+		
+		<!--
+		<echo message="${doc-classes}"/>
+		-->
+		
+		<asdoc doc-classes="${doc-classes}"
+				source-path="${src.dir}"
+				output="${asdoc.dir}"
+				title="${asdoc.title}"
+				footer="${asdoc.footer}"
+				external-library-path="${libs.dir}/font.swc"/>
+		
+		<antcall target="asdoc-launch"/>
+	
+	</target>
+	
+	<target name="asdoc-launch">
+		<firefox file="${asdoc.dir}/index.html"/>
+	</target>
+	
+	
+	<!-- 
+	
+	SWC
+		
+	-->
+	
+	<target name="font-swc">
+		
+		<compile-fla dir="${assets.dir}" name="font" todir="${libs.dir}"/>
+		
+	</target>
+	
+	<target name="swc-create">
+		
+		<fileset id="sources" dir="${src.dir}/">
+			<include name="com/bit101/**/*.as"/>
+		</fileset>
+			
+		<pathconvert property="include-sources" pathsep="," refid="sources">
+			<identitymapper/>
+		</pathconvert>
+		
+		<!--		
+		<echo>include-sources:${include-sources}</echo>
+		-->
+		
+		<!-- create SWC with report -->
+		<compc output="${project.swc}"
+				include-sources="${include-sources}"
+				library-path="${libs.dir}/font.swc"
+				link-report="${basedir}/build/temp/report.xml"/>
+		
+		<!-- create SWC with report -->
+		<exec executable="rake" failonerror="true">
+			<arg value="report=build/temp/report.xml" />
+			<arg value="load_externs=${basedir}/build/temp/load-externs.xml" />
+			<arg value="create_load_externs" />
+		</exec>
+		
+		<!-- create SWC with load-externs -->
+		<compc output="${project.swc}"
+						include-sources="${include-sources}"
+						library-path="${libs.dir}/font.swc"
+						load-externs="${basedir}/build/temp/load-externs.xml"/>
+			
+	</target>
+	
+	<!--
+	<target name="test-jruby">
+		<java jar="${basedir}/build/libs/jruby-complete-1.5.6.jar" fork="true">
+			<arg line="-S rake -f rakefile.rb test2"/>
+		</java>
+	</target>
+	-->
+	
+	<!--
+	<target name="rake-test">
+		<echo>${basedir}</echo>
+	    <exec executable="rake" failonerror="true">
+	    	<arg value="report=libs/report.xml" />
+	        <arg value="create_load_externs" />
+	    </exec>
+	</target>
+	-->
+	
+</project>
+
+<!--
+	options
+	
+	-output <filename>
+			alias -o
+			the filename of the SWF movie to create
+	
+	-include-sources [path-element] [...]
+			alias -is
+			a list of directories and source files to include in the output SWC
+			(repeatable)
+	
+	-compiler.external-library-path [path-element] [...]
+			alias -el
+			list of SWC files or directories to compile against but to omit from
+			linking (repeatable)
+	
+	-static-link-runtime-shared-libraries
+			alias -static-rsls
+			statically link the libraries specified by the
+			-runtime-shared-libraries-path option.
+	
+	-compiler.verbose-stacktraces
+			alias -verbose-stacktraces
+			save callstack information to the SWF for debugging (advanced)
+	
+	-compiler.headless-server
+			alias -headless-server
+			a flag to set when Flex is running on a server without a display
+			(advanced)
+	
+	-compiler.library-path [path-element] [...]
+			alias -library-path
+			list of SWC files or directories that contain SWC files (repeatable)
+	
+	-link-report <filename>
+			Output a XML-formatted report of all definitions linked into the
+			application. (advanced)
+	
+-->
+
+
+
+
+
+

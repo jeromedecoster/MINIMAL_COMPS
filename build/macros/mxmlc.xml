@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="macro-mxmlc">
+	
+	<!--
+	
+	Required in parent build file :
+	<taskdef resource="net/sf/antcontrib/antlib.xml" classpath="${basedir}/build/libs/ant-contrib-1.0b3.jar"/>
+	
+	-->
+	
+	<macrodef name="mxmlc">
+		<!-- required attributes -->
+		<attribute name="file-specs" default=""/>
+		<attribute name="output" default=""/>
+		<!-- optional attributes -->
+		<attribute name="source-path" default=""/>
+		<!--
+		les valeurs doivent etre espace par des virgules
+		library-path="ici.swc,la.swc"
+		external-library-path="ici.swc,la.swc"
+		-->
+		<attribute name="library-path" default=""/>
+		<attribute name="external-library-path" default=""/>
+		<!--
+		les valeurs doivent etre espace par des virgules
+		keep-as3-metadata="Inject,PostConstruct"
+		-->
+		<attribute name="keep-as3-metadata" default=""/>
+		<attribute name="debug" default="false"/>
+		<attribute name="target-player" default="${project.target-player}"/>
+		<sequential>
+			<if>
+				<equals arg1="@{file-specs}" arg2="" />
+				<then>
+					<fail message="Attribute 'file-specs' required" />
+				</then>
+			</if>
+			<if>
+				<equals arg1="@{output}" arg2="" />
+				<then>
+					<fail message="Attribute 'output' required" />
+				</then>
+			</if>
+			
+			<var name="line" value=" "/>
+			<if>
+				<equals arg1="@{source-path}" arg2="" />
+				<else>
+					<var name="line" value="${line} -source-path=@{source-path}"/>
+				</else>
+			</if>
+			<if>
+				<equals arg1="@{library-path}" arg2="" />
+				<else>
+					<var name="line" value="${line} -library-path+=@{library-path}"/>
+				</else>
+			</if>
+			<if>
+				<equals arg1="@{external-library-path}" arg2="" />
+				<else>
+					<var name="line" value="${line} -external-library-path+=@{external-library-path}"/>
+				</else>
+			</if>
+			<if>
+				<equals arg1="@{keep-as3-metadata}" arg2="" />
+				<else>
+					<var name="line" value="${line} -keep-as3-metadata+=@{keep-as3-metadata}"/>
+				</else>
+			</if>
+			
+			<!--
+			<echo>line:${line}</echo>
+			-->
+			
+			<java jar="${flex.mxmlc.jar}" dir="${flex.dir}/frameworks" fork="true" failonerror="true">
+				<arg line="-file-specs=@{file-specs}"/>
+				<arg line="-output=@{output}"/>
+				
+				<arg line="${line}"/>
+				
+				<arg line="-target-player=@{target-player}"/>
+				<arg line="-actionscript-file-encoding=UTF-8"/>
+				<arg line="-optimize=true"/>
+				<arg line="-static-link-runtime-shared-libraries=true"/>
+				<arg line="-debug=@{debug}"/>
+				<arg line="-verbose-stacktraces=@{debug}"/>
+				<arg line="-headless-server=false"/>
+			</java>
+		</sequential>
+	</macrodef>
+	
+</project>
+
+<!--
+	options
+	
+	-output <filename>
+			alias -o
+			the filename of the SWF movie to create
+	
+	-include-sources [path-element] [...]
+			alias -is
+			a list of directories and source files to include in the output SWC
+			(repeatable)
+	
+	-compiler.external-library-path [path-element] [...]
+			alias -el
+			list of SWC files or directories to compile against but to omit from
+			linking (repeatable)
+	
+	-static-link-runtime-shared-libraries
+			alias -static-rsls
+			statically link the libraries specified by the
+			-runtime-shared-libraries-path option.
+	
+	-compiler.verbose-stacktraces
+			alias -verbose-stacktraces
+			save callstack information to the SWF for debugging (advanced)
+	
+	-compiler.headless-server
+			alias -headless-server
+			a flag to set when Flex is running on a server without a display
+			(advanced)
+	
+	-compiler.library-path [path-element] [...]
+			alias -library-path
+			list of SWC files or directories that contain SWC files (repeatable)
+	
+	-link-report <filename>
+			Output a XML-formatted report of all definitions linked into the
+			application. (advanced)
+			
+	-target-player <version>
+			specifies the version of the player the application is targeting.
+			Features requiring a later version will not be compiled into the
+			application. The minimum value supported is "9.0.0".
+	
+	-compiler.debug
+			alias -debug
+			generates a movie that is suitable for debugging
+	
+-->
+
+
+
+
+
+
