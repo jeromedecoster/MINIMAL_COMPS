@@ -42,7 +42,6 @@ package com.bit101.components
 		protected var _labelText:String;
 		protected var _tick:Number = 1;
 		
-		
 		/**
 		 * Constructor
 		 * @param parent The parent DisplayObjectContainer on which to add this UISlider.
@@ -62,6 +61,24 @@ package com.bit101.components
 			formatValueLabel();
 		}
 		
+		//--------------------------------------
+		//  EVENTS
+		//--------------------------------------
+		
+		/**
+		 * Handler called when the slider's value changes.
+		 * @param event The Event passed by the slider.
+		 */
+		protected function onSliderChange(event:Event):void
+		{
+			formatValueLabel();
+			dispatchEvent(new Event(Event.CHANGE));
+		}
+		
+		//--------------------------------------
+		//  PRIVATE
+		//--------------------------------------
+		
 		/**
 		 * Creates and adds the child display objects of this component.
 		 */
@@ -77,28 +94,37 @@ package com.bit101.components
 		 */
 		protected function formatValueLabel():void
 		{
-			var mult:Number = Math.pow(10, _precision);
-			var val:String = (Math.round(_slider.value * mult) / mult).toString();
-			var parts:Array = val.split(".");
-			if(parts[1] == null)
-			{ 
-				if(_precision > 0)
-				{
-					val += ".";
-				}
-				for(var i:uint = 0; i < _precision; i++)
-				{
-					val += "0";
-				}
-			}
-			else if(parts[1].length < _precision)
+			if (isNaN(_slider.value))
 			{
-				for(i = 0; i < _precision - parts[1].length; i++)
-				{
-					val += "0";
-				}
+				_valueLabel.text = "NaN";
 			}
-			_valueLabel.text = val;
+			else
+			{
+				var mult:Number = Math.pow(10, _precision);
+				var val:String = (Math.round(_slider.value * mult) / mult).toString();
+				var parts:Array = val.split(".");
+				var i:uint;
+				if (parts[1] == null)
+				{ 
+					if (_precision > 0)
+					{
+						val += ".";
+					}
+					for (i; i < _precision; i++)
+					{
+						val += "0";
+					}
+				}
+				else if (parts[1].length < _precision)
+				{
+					var n:uint = _precision - parts[1].length;
+					for (i; i < n; i++)
+					{
+						val += "0";
+					}
+				}
+				_valueLabel.text = val;
+			}
 			positionLabel();
 		}
 		
@@ -110,12 +136,9 @@ package com.bit101.components
 			
 		}
 		
-		
-		
-		
-		///////////////////////////////////
-		// public methods
-		///////////////////////////////////
+		//--------------------------------------
+		//  PUBLIC
+		//--------------------------------------
 		
 		/**
 		 * Draws the visual ui of this component.
@@ -139,30 +162,6 @@ package com.bit101.components
 			_slider.setSliderParams(min, max, value);
 		}
 		
-		
-		
-		
-		///////////////////////////////////
-		// event handlers
-		///////////////////////////////////
-		
-		/**
-		 * Handler called when the slider's value changes.
-		 * @param event The Event passed by the slider.
-		 */
-		protected function onSliderChange(event:Event):void
-		{
-			formatValueLabel();
-			dispatchEvent(new Event(Event.CHANGE));
-		}
-		
-		
-		
-		
-		///////////////////////////////////
-		// getter/setters
-		///////////////////////////////////
-		
 		/**
 		 * Sets / gets the current value of this slider.
 		 */
@@ -171,10 +170,8 @@ package com.bit101.components
 			_slider.value = v;
 			formatValueLabel();
 		}
-		public function get value():Number
-		{
-			return _slider.value;
-		}
+		
+		public function get value():Number { return _slider.value; }
 		
 		/**
 		 * Gets / sets the maximum value of this slider.
@@ -183,10 +180,8 @@ package com.bit101.components
 		{
 			_slider.maximum = m;
 		}
-		public function get maximum():Number
-		{
-			return _slider.maximum;
-		}
+		
+		public function get maximum():Number { return _slider.maximum; }
 		
 		/**
 		 * Gets / sets the minimum value of this slider.
@@ -195,10 +190,8 @@ package com.bit101.components
 		{
 			_slider.minimum = m;
 		}
-		public function get minimum():Number
-		{
-			return _slider.minimum;
-		}
+		
+		public function get minimum():Number { return _slider.minimum; }
 		
 		/**
 		 * Gets / sets the number of decimals to format the value label. Does not affect the actual value of the slider, just the number shown.
@@ -207,10 +200,8 @@ package com.bit101.components
 		{
 			_precision = decimals;
 		}
-		public function get labelPrecision():int
-		{
-			return _precision;
-		}
+		
+		public function get labelPrecision():int { return _precision; }
 		
 		/**
 		 * Gets / sets the text shown in this component's label.
@@ -221,10 +212,8 @@ package com.bit101.components
 //			invalidate();
 			draw();
 		}
-		public function get label():String
-		{
-			return _labelText;
-		}
+		
+		public function get label():String { return _labelText; }
 		
 		/**
 		 * Gets / sets the tick value of this slider. This round the value to the nearest multiple of this number. 
@@ -234,11 +223,11 @@ package com.bit101.components
 			_tick = t;
 			_slider.tick = _tick;
 		}
-		public function get tick():Number
-		{
-			return _tick;
-		}
 		
-
+		public function get tick():Number { return _tick; }
 	}
 }
+
+
+
+
