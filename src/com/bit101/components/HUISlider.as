@@ -32,7 +32,6 @@ package com.bit101.components
 
     public class HUISlider extends UISlider
 	{
-		
 		/**
 		 * Constructor
 		 * @param parent The parent DisplayObjectContainer on which to add this HUISlider.
@@ -46,6 +45,10 @@ package com.bit101.components
 			_sliderClass = HSlider;
 			super(parent, xpos, ypos, label, defaultHandler);
 		}
+		
+		//--------------------------------------
+		//  PRIVATE
+		//--------------------------------------
 		
 		/**
 		 * Initializes the component.
@@ -64,12 +67,9 @@ package com.bit101.components
 			_valueLabel.x = _slider.x + _slider.width + 5;
 		}
 		
-		
-		
-		
-		///////////////////////////////////
-		// public methods
-		///////////////////////////////////
+		//--------------------------------------
+		//  PUBLIC
+		//--------------------------------------
 		
 		/**
 		 * Draws the visual ui of this component.
@@ -83,14 +83,9 @@ package com.bit101.components
 			
 			_valueLabel.x = _slider.x + _slider.width + 5;
 		}
-		
-		///////////////////////////////////
-		// event handlers
-		///////////////////////////////////
-		
-		///////////////////////////////////
-		// getter/setters
-		///////////////////////////////////
-		
 	}
 }
+
+
+
+

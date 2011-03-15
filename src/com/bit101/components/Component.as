@@ -121,6 +121,14 @@ package com.bit101.components
 			addEventListener(Event.ENTER_FRAME, onInvalidate);
 		}
 		
+		/**
+		 * Round a value at 10 decimal places
+		 */
+		protected function dec10(value:Number):Number
+		{
+			return Math.round(value * 10000000000) / 10000000000;
+		}
+		
 		//--------------------------------------
 		//  PUBLIC
 		//--------------------------------------

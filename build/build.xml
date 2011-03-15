@@ -65,6 +65,21 @@
 		<firefox file="${bin.dir}/test_actions.swf"/>
 	</target>
 	
+	<target name="test-values-compile">
+		
+		<mxmlc file-specs="${src.dir}/prj/TestValues.as"
+				output="${bin.dir}/test_values.swf"
+				source-path="${src.dir}"
+				library-path="${libs.dir}/font.swc"
+				debug="true"/>
+		
+		<antcall target="test-values-launch"/>
+	</target>
+	
+	<target name="test-values-launch">
+		<firefox file="${bin.dir}/test_values.swf"/>
+	</target>
+	
 	<!--
 	<target name="test_create">
 		<java jar="${flex.mxmlc.jar}" dir="${flex.dir}/frameworks" fork="true" failonerror="true">

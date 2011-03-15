@@ -67,6 +67,88 @@ package com.bit101.components
 			}
 		}
 		
+		//--------------------------------------
+		//  EVENTS
+		//--------------------------------------
+		
+		/**
+		 * Handler called when user clicks the background of the slider, causing the handle to move to that point. Only active if backClick is true.
+		 * @param event The MouseEvent passed by the system.
+		 */
+		protected function onBackClick(event:MouseEvent):void
+		{
+			if (_orientation == HORIZONTAL)
+			{
+				_handle.x = mouseX - _height / 2;
+				_handle.x = Math.max(_handle.x, 0);
+				_handle.x = Math.min(_handle.x, _width - _height);
+				_value = _handle.x / (width - _height) * (_max - _min) + _min;
+			}
+			else
+			{
+				_handle.y = mouseY - _width / 2;
+				_handle.y = Math.max(_handle.y, 0);
+				_handle.y = Math.min(_handle.y, _height - _width);
+				_value = (_height - _width - _handle.y) / (height - _width) * (_max - _min) + _min;
+			}
+			dispatchEvent(new Event(Event.CHANGE));
+			
+		}
+		
+		/**
+		 * Internal mouseDown handler. Starts dragging the handle.
+		 * @param event The MouseEvent passed by the system.
+		 */
+		protected function onDrag(event:MouseEvent):void
+		{
+			stage.addEventListener(MouseEvent.MOUSE_UP, onDrop);
+			stage.addEventListener(MouseEvent.MOUSE_MOVE, onSlide);
+			if (_orientation == HORIZONTAL)
+			{
+				_handle.startDrag(false, new Rectangle(0, 0, _width - _height, 0));
+			}
+			else
+			{
+				_handle.startDrag(false, new Rectangle(0, 0, 0, _height - _width));
+			}
+		}
+		
+		/**
+		 * Internal mouseUp handler. Stops dragging the handle.
+		 * @param event The MouseEvent passed by the system.
+		 */
+		protected function onDrop(event:MouseEvent):void
+		{
+			stage.removeEventListener(MouseEvent.MOUSE_UP, onDrop);
+			stage.removeEventListener(MouseEvent.MOUSE_MOVE, onSlide);
+			stopDrag();
+		}
+		
+		/**
+		 * Internal mouseMove handler for when the handle is being moved.
+		 * @param event The MouseEvent passed by the system.
+		 */
+		protected function onSlide(event:MouseEvent):void
+		{
+			var oldValue:Number = _value;
+			if (_orientation == HORIZONTAL)
+			{
+				_value = _handle.x / (width - _height) * (_max - _min) + _min;
+			}
+			else
+			{
+				_value = (_height - _width - _handle.y) / (height - _width) * (_max - _min) + _min;
+			}
+			if (_value != oldValue)
+			{
+				dispatchEvent(new Event(Event.CHANGE));
+			}
+		}
+		
+		//--------------------------------------
+		//  PRIVATE
+		//--------------------------------------
+		
 		/**
 		 * Initializes the component.
 		 */
@@ -74,7 +156,7 @@ package com.bit101.components
 		{
 			super.init();
 
-			if(_orientation == HORIZONTAL)
+			if (_orientation == HORIZONTAL)
 			{
 				setSize(100, 10);
 			}
@@ -111,7 +193,7 @@ package com.bit101.components
 			_back.graphics.drawRect(0, 0, _width, _height);
 			_back.graphics.endFill();
 
-			if(_backClick)
+			if (_backClick)
 			{
 				_back.addEventListener(MouseEvent.MOUSE_DOWN, onBackClick);
 			}
@@ -128,7 +210,7 @@ package com.bit101.components
 		{	
 			_handle.graphics.clear();
 			_handle.graphics.beginFill(Style.BUTTON_FACE);
-			if(_orientation == HORIZONTAL)
+			if (_orientation == HORIZONTAL)
 			{
 				_handle.graphics.drawRect(1, 1, _height - 2, _height - 2);
 			}
@@ -145,7 +227,7 @@ package com.bit101.components
 		 */
 		protected function correctValue():void
 		{
-			if(_max > _min)
+			if (_max > _min)
 			{
 				_value = Math.min(_value, _max);
 				_value = Math.max(_value, _min);
@@ -164,7 +246,7 @@ package com.bit101.components
 		protected function positionHandle():void
 		{
 			var range:Number;
-			if(_orientation == HORIZONTAL)
+			if (_orientation == HORIZONTAL)
 			{
 				range = _width - _height;
 				_handle.x = (_value - _min) / (_max - _min) * range;
@@ -176,12 +258,9 @@ package com.bit101.components
 			}
 		}
 		
-		
-		
-		
-		///////////////////////////////////
-		// public methods
-		///////////////////////////////////
+		//--------------------------------------
+		//  PUBLIC
+		//--------------------------------------
 		
 		/**
 		 * Draws the visual ui of the component.
@@ -206,94 +285,6 @@ package com.bit101.components
 			this.value = value;
 		}
 		
-		
-		
-		
-		///////////////////////////////////
-		// event handlers
-		///////////////////////////////////
-		
-		/**
-		 * Handler called when user clicks the background of the slider, causing the handle to move to that point. Only active if backClick is true.
-		 * @param event The MouseEvent passed by the system.
-		 */
-		protected function onBackClick(event:MouseEvent):void
-		{
-			if(_orientation == HORIZONTAL)
-			{
-				_handle.x = mouseX - _height / 2;
-				_handle.x = Math.max(_handle.x, 0);
-				_handle.x = Math.min(_handle.x, _width - _height);
-				_value = _handle.x / (width - _height) * (_max - _min) + _min;
-			}
-			else
-			{
-				_handle.y = mouseY - _width / 2;
-				_handle.y = Math.max(_handle.y, 0);
-				_handle.y = Math.min(_handle.y, _height - _width);
-				_value = (_height - _width - _handle.y) / (height - _width) * (_max - _min) + _min;
-			}
-			dispatchEvent(new Event(Event.CHANGE));
-			
-		}
-		
-		/**
-		 * Internal mouseDown handler. Starts dragging the handle.
-		 * @param event The MouseEvent passed by the system.
-		 */
-		protected function onDrag(event:MouseEvent):void
-		{
-			stage.addEventListener(MouseEvent.MOUSE_UP, onDrop);
-			stage.addEventListener(MouseEvent.MOUSE_MOVE, onSlide);
-			if(_orientation == HORIZONTAL)
-			{
-				_handle.startDrag(false, new Rectangle(0, 0, _width - _height, 0));
-			}
-			else
-			{
-				_handle.startDrag(false, new Rectangle(0, 0, 0, _height - _width));
-			}
-		}
-		
-		/**
-		 * Internal mouseUp handler. Stops dragging the handle.
-		 * @param event The MouseEvent passed by the system.
-		 */
-		protected function onDrop(event:MouseEvent):void
-		{
-			stage.removeEventListener(MouseEvent.MOUSE_UP, onDrop);
-			stage.removeEventListener(MouseEvent.MOUSE_MOVE, onSlide);
-			stopDrag();
-		}
-		
-		/**
-		 * Internal mouseMove handler for when the handle is being moved.
-		 * @param event The MouseEvent passed by the system.
-		 */
-		protected function onSlide(event:MouseEvent):void
-		{
-			var oldValue:Number = _value;
-			if(_orientation == HORIZONTAL)
-			{
-				_value = _handle.x / (width - _height) * (_max - _min) + _min;
-			}
-			else
-			{
-				_value = (_height - _width - _handle.y) / (height - _width) * (_max - _min) + _min;
-			}
-			if(_value != oldValue)
-			{
-				dispatchEvent(new Event(Event.CHANGE));
-			}
-		}
-		
-		
-		
-		
-		///////////////////////////////////
-		// getter/setters
-		///////////////////////////////////
-		
 		/**
 		 * Sets / gets whether or not a click on the background of the slider will move the handler to that position.
 		 */
@@ -302,33 +293,27 @@ package com.bit101.components
 			_backClick = b;
 			invalidate();
 		}
-		public function get backClick():Boolean
-		{
-			return _backClick;
-		}
+		public function get backClick():Boolean { return _backClick; }
 		
 		/**
 		 * Sets / gets the current value of this slider.
 		 */
 		public function set value(v:Number):void
 		{
-			_value = v;
+			_value = dec10(v);
 			correctValue();
 			positionHandle();
 			
 		}
 		public function get value():Number
 		{
-			return Math.round(_value / _tick) * _tick;
+			return dec10(Math.round(_value / _tick) * _tick);
 		}
 
         /**
          * Gets the value of the slider without rounding it per the tick value.
          */
-        public function get rawValue():Number
-        {
-            return _value;
-        }
+        public function get rawValue():Number { return _value; }
 		
 		/**
 		 * Gets / sets the maximum value of this slider.
@@ -339,10 +324,8 @@ package com.bit101.components
 			correctValue();
 			positionHandle();
 		}
-		public function get maximum():Number
-		{
-			return _max;
-		}
+		
+		public function get maximum():Number { return _max; }
 		
 		/**
 		 * Gets / sets the minimum value of this slider.
@@ -353,10 +336,8 @@ package com.bit101.components
 			correctValue();
 			positionHandle();
 		}
-		public function get minimum():Number
-		{
-			return _min;
-		}
+		
+		public function get minimum():Number { return _min; }
 		
 		/**
 		 * Gets / sets the tick value of this slider. This round the value to the nearest multiple of this number. 
@@ -365,10 +346,11 @@ package com.bit101.components
 		{
 			_tick = t;
 		}
-		public function get tick():Number
-		{
-			return _tick;
-		}
 		
+		public function get tick():Number { return _tick; }
 	}
 }
+
+
+
+
