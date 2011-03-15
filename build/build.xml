@@ -35,6 +35,21 @@
 		<firefox file="${bin.dir}/test_vbox.swf"/>
 	</target>
 	
+	<target name="test-default-values-compile">
+		
+		<mxmlc file-specs="${src.dir}/prj/TestDefaultValues.as"
+				output="${bin.dir}/test_default_values.swf"
+				source-path="${src.dir}"
+				library-path="${libs.dir}/font.swc"
+				debug="true"/>
+		
+		<antcall target="test-default-values-launch"/>
+	</target>
+	
+	<target name="test-default-values-launch">
+		<firefox file="${bin.dir}/test_default_values.swf"/>
+	</target>
+	
 	<!--
 	<target name="test_create">
 		<java jar="${flex.mxmlc.jar}" dir="${flex.dir}/frameworks" fork="true" failonerror="true">
