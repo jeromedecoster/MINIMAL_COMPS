@@ -339,22 +339,34 @@ package com.bit101.utils
 		 */ 
 		public function parseXMLString(string:String):void
 		{
-			try
-			{
-				var xml:XML = new XML(string);
-				parseXML(xml);
-			}
+			var xml:XML;
+			
+			try { xml = new XML(string); }
 			catch (e:Error) {}
+			
+			parseXML(xml);
+			
 			
 			dispatchEvent(new Event(Event.COMPLETE));
 		}
-
+		
 		/**
 		 * Parses xml and creates components based on it.
 		 * @param xml The xml to parse.
 		 */
 		public function parseXML(xml:XML):void
 		{
+			if (xml == null) return;
+			
+			// id in XML config must be unique
+			var tmp:Object = {};
+			var xids:XMLList = xml..@id;
+			for each (var xid:String in xids)
+			{
+				if (tmp[xid] == null) tmp[xid] = true;
+				else throw new Error("Component attribute <id> must be unique. id=" + xid);
+			}
+			
 			// root tag should contain one or more component tags
 			// each tag's name should be the base name of a component, i.e. "PushButton"
 			// package is assumed "com.bit101.components"
@@ -472,8 +484,6 @@ package com.bit101.utils
 				}
 			}
 		}
-		
-		
 		
 		/**
 		 * Returns the componet with the given id, if it exists.

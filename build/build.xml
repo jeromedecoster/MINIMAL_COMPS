@@ -50,6 +50,21 @@
 		<firefox file="${bin.dir}/test_default_values.swf"/>
 	</target>
 	
+	<target name="test-actions-compile">
+		
+		<mxmlc file-specs="${src.dir}/prj/TestActions.as"
+				output="${bin.dir}/test_actions.swf"
+				source-path="${src.dir}"
+				library-path="${libs.dir}/font.swc"
+				debug="true"/>
+		
+		<antcall target="test-actions-launch"/>
+	</target>
+	
+	<target name="test-actions-launch">
+		<firefox file="${bin.dir}/test_actions.swf"/>
+	</target>
+	
 	<!--
 	<target name="test_create">
 		<java jar="${flex.mxmlc.jar}" dir="${flex.dir}/frameworks" fork="true" failonerror="true">
@@ -70,36 +85,6 @@
 			<arg line="-a Firefox ${bin.dir}/test.swf"/>
 		</exec>
 	</target>
-	
-	<target name="default_values_compile">
-		<fdt.launch.application
-					projectname="MINIMALCOMPS"
-					mainclass="${basedir}/src-test/DefaultValuesDoc.as"
-					target="${bin.dir}/default_values.swf" 
-					debug="false"/>
-		<antcall target="default_values_launch"/>
-	</target>
-	
-	<target name="default_values_launch">
-		<exec executable="open">
-			<arg line="-a Firefox ${bin.dir}/default_values.swf"/>
-		</exec>
-	</target>
-	
-	<target name="actions1_compile">
-			<fdt.launch.application
-						projectname="MINIMALCOMPS"
-						mainclass="${basedir}/src-test/Actions1Doc.as"
-						target="${bin.dir}/actions1.swf" 
-						debug="false"/>
-			<antcall target="actions1_launch"/>
-		</target>
-		
-		<target name="actions1_launch">
-			<exec executable="open">
-				<arg line="-a Firefox ${bin.dir}/actions1.swf"/>
-			</exec>
-		</target>
 	-->
 	
 	<!-- 
